@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { NavBar } from "./components/navBar/NavBar";
+import { Books } from "./pages/Books";
+import { Authors } from "./pages/Authors";
+import store from "./store";
+import { Provider } from "react-redux";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+const THEME = createTheme({
+  typography: {
+    "fontFamily": `"Verdana", sans-serif`,
+    "fontSize": 12,
+  }
+});
+
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={THEME}>
+
+      <Provider store={store}>
+        <BrowserRouter>
+          <NavBar />
+          <Routes>
+            <Route path={'/'} element={<Books />} />
+            <Route path={'/books'} element={<Books />} />
+            <Route path={'/authors'} element={<Authors />} />
+          </Routes>
+        </BrowserRouter>
+      </Provider>
+    </ThemeProvider>
+
+
   );
-}
+};
 
 export default App;
