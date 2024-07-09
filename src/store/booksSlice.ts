@@ -24,7 +24,6 @@ export const addBook = createAsyncThunk(
   "books/add",
   async (book: Book) => {
     const response = await axios.post(serverUrl, book);
-    console.log(response.data);
     return response.data;
   }
 );
