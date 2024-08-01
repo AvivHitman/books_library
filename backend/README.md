@@ -11,12 +11,3 @@
 
 - For client - `npm start` → will run on http://localhost:3000/
 - For server- `npm run dev` → will run on http://localhost:8080/
-
-### Bonus
-- Implement all Firebase Functions in the backend using node.js
-- Implement API requests using Redux Toolkit
-- Use TypeScript for the frontend
-- Add search feature
-
-
-
